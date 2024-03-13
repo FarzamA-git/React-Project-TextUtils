@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -49,6 +49,6 @@ export default function Navbar(props) {
   );
 }
 
-Navbar.propTypes = {title: PropTypes.string}
+Navbar.propTypes = {title: PropTypes.string.isRequired}
 
 Navbar.defaultProps = {title: "Jammmy King"}
