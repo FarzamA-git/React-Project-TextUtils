@@ -57,15 +57,16 @@ export default function Textform(props) {
   }, [text]);
   return (
     <>
-      <div>
+      <div className="container" style={{color: props.mode === 'dark'?'white':'#042743'}}>
+      <h1>{props.heading}</h1>
         <div className="mb-3">
-          <h1>{props.heading}</h1>
           <textarea
             className="form-control"
             id="myTextArea"
             value={text}
             rows="3"
             onChange={handleOnChange}
+            style={{backgroundColor:props.mode === 'light'?'white':'#042743',color:props.mode === 'light'?'black':'white'}}
           ></textarea>
         </div>
         <button className="btn btn-primary" onClick={handleUpClick}>
@@ -87,12 +88,12 @@ export default function Textform(props) {
           Download Txt File
         </button>
       </div>
-      <div className="container my-5">
+      <div className="container my-5" style={{color: props.mode === 'dark' ? 'white' : '#042743'}}>
         <h2>Your Text Summary</h2>
         <p>Character Count: {charCount}</p>
         <p>Word Count: {wordCount}</p>
         <h2>Preview</h2>
-        <p style={{ fontFamily: fontFamily }}>{text}</p>
+        <p style={{ fontFamily: fontFamily }}>{text.length>0?text:'Enter text above to preview it here ...'}</p>
       </div>
     </>
   );
