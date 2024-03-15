@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import About from "./About";
+// import About from "./About";
 
 export default function Navbar(props) {
   return (
@@ -28,7 +28,7 @@ export default function Navbar(props) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href={About}>
+              <a className="nav-link" href="/">
                 About
               </a>
             </li>
@@ -46,7 +46,7 @@ export default function Navbar(props) {
           </form> */}
           <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`} onClick={props.toggle}>
             <input
-              class="form-check-input"
+              className="form-check-input"
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"

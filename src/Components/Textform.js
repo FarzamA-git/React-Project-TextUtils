@@ -20,17 +20,23 @@ export default function Textform(props) {
   };
   const handleUpClick = () => {
     setText(text.toUpperCase());
+    props.showAlert('Converted to Uppercase','success')
   };
   const handleLowClick = () => {
     setText(text.toLowerCase());
+    props.showAlert('Converted to Lowercase','success')
+
   };
   const handleTrimClick = () => {
     setText(text.split(/\s+/).join(" ").trim());
+    props.showAlert('Text has been Trimmed','success')
+
   };
   const handleClearClick = () => {
     setText("");
     setCharCount(0);
     setWordCount(0);
+    props.showAlert('Text has been cleared','success')
   };
   const handleFontClick = () => {
     if (fontFamily === "Arial") {
@@ -38,6 +44,8 @@ export default function Textform(props) {
     } else {
       setFontFamily("Arial");
     }
+    props.showAlert('Font has been Updated','success')
+
   };
   const handleDownloadClick =() => {
     const blob = new Blob([text], { type: "text/plain" });
@@ -48,6 +56,8 @@ export default function Textform(props) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link)
+    props.showAlert('File has been downloaded','success')
+
   }
 
 
