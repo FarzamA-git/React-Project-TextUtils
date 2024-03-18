@@ -79,22 +79,22 @@ export default function Textform(props) {
             style={{backgroundColor:props.mode === 'light'?'white':'#042743',color:props.mode === 'light'?'black':'white'}}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary" onClick={handleUpClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleLowClick}>
+        <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleTrimClick}>
+        <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleTrimClick}>
           Trim your Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>
+        <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>
           Clear Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleFontClick}>
+        <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleFontClick}>
           Change Font
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleDownloadClick}>
+        <button disabled={text.length===0}className="btn btn-primary mx-1 my-1" onClick={handleDownloadClick}>
           Download Txt File
         </button>
       </div>
