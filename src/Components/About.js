@@ -5,6 +5,7 @@ export default function About(props) {
   //   color: "black",
   //   backgroundColor: "white",
   // });
+  
 let myStyle = {
   color: props.mode==="dark"?"white":"black",
   backgroundColor: props.mode==="dark"?"#042743":"white"
@@ -17,11 +18,11 @@ let myStyle = {
         <div className="accordion-item" style={myStyle}>
           <h2 className="accordion-header">
             <button
-              className="accordion-button"
+              className="accordion-button collapsed" 
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapseOne"
               style={myStyle}
             >
@@ -30,7 +31,7 @@ let myStyle = {
           </h2>
           <div
             id="collapseOne"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
