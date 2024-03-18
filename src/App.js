@@ -1,42 +1,41 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Textform from "./Components/Textform";
-import { useState } from "react";
-// import About from "./Components/About";
+import About from "./Components/About";
 import Alert from "./Components/Alert";
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from "react";
 
 function App() {
   const [mode, setMode] = useState("light");
-  const [alert,setAlert]=useState(null);
-  const showAlert=(message,type)=>{
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
     setAlert({
-      msg:message,
-      type:type
+      msg: message,
+      type: type,
     });
     setTimeout(() => {
       setAlert(null);
     }, 1500);
-  }
-  const toggleMode=() => {
-    if(mode === 'light'){
-      setMode('dark');
-      document.body.style.backgroundColor='#042743';
-      showAlert("Dark mode Enabled","success");
-    }else{
-      setMode('light');
-      document.body.style.backgroundColor='white';
-      showAlert("Light mode Enabled","success");    }
-  }
+  };
+
+  const toggleMode = () => {
+    const newMode = mode === "light" ? "dark" : "light";
+    setMode(newMode);
+    document.body.style.backgroundColor = newMode === "light" ? "white" : "#042743";
+    showAlert(`${newMode === "light" ? "Light" : "Dark"} mode Enabled`, "success");
+  };
+
   return (
-    <>
-      <Navbar title="TextUtils" mode={mode} toggle={toggleMode}/>
-      <Alert alert={alert}/>
-      <div className="container my-3">
-        <Textform heading="Enter Text Below" mode={mode} showAlert={showAlert}/>
-      </div>
-      {/* <About /> */}
-    </>
+    <Router>
+      <Navbar title="TextUtils" mode={mode} toggle={toggleMode} />
+      <Alert alert={alert} />
+      <Routes>
+        <Route path="/" element={<Textform heading="Enter Text Below" mode={mode} showAlert={showAlert} />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 
